@@ -1,6 +1,6 @@
 <?php
 
-namespace Lsg\AutoScreen;
+namespace Lsg\betterLaravel;
 
 use Closure;
 use Illuminate\Contracts\Database\Eloquent\Builder;

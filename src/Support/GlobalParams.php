@@ -1,6 +1,6 @@
 <?php
 
-namespace Lsg\AutoScreen\Support;
+namespace Lsg\betterLaravel\Support;
 
 use App\Models\Admin;
 

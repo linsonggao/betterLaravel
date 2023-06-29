@@ -1,6 +1,6 @@
 <?php
 
-namespace Lsg\AutoScreen\Enum;
+namespace Lsg\betterLaravel\Enum;
 
 use Attribute;
 

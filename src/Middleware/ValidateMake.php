@@ -1,6 +1,6 @@
 <?php
 
-namespace Lsg\AutoScreen\Middleware;
+namespace Lsg\betterLaravel\Middleware;
 
 use Closure;
 use Illuminate\Support\Facades\Cache;

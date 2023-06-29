@@ -1,6 +1,6 @@
 <?php
 
-namespace Lsg\AutoScreen\Rules;
+namespace Lsg\betterLaravel\Rules;
 
 use Illuminate\Contracts\Validation\Rule;
 

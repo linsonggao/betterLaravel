@@ -1,9 +1,9 @@
 <?php
 
-namespace Lsg\AutoScreen\Console;
+namespace Lsg\betterLaravel\Console;
 
 use Illuminate\Console\Command;
-use Lsg\AutoScreen\Middleware\ValidateMake;
+use Lsg\betterLaravel\Middleware\ValidateMake;
 use Symfony\Component\Console\Helper\ProgressBar;
 
 /**

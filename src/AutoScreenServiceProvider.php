@@ -1,14 +1,14 @@
 <?php
 
-namespace Lsg\AutoScreen;
+namespace Lsg\betterLaravel;
 
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\ServiceProvider;
-use Lsg\AutoScreen\Console\MakeListCommand;
-use Lsg\AutoScreen\Console\MakeValidateCommand;
-use Lsg\AutoScreen\Support\CustomPaginator;
+use Lsg\betterLaravel\Console\MakeListCommand;
+use Lsg\betterLaravel\Console\MakeValidateCommand;
+use Lsg\betterLaravel\Support\CustomPaginator;
 
 class AutoScreenServiceProvider extends ServiceProvider
 {

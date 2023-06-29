@@ -1,6 +1,6 @@
 <?php
 
-namespace Lsg\AutoScreen\Support;
+namespace Lsg\betterLaravel\Support;
 
 use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Foundation\Http\FormRequest;

@@ -1,6 +1,6 @@
 <?php
 
-namespace Lsg\AutoScreen;
+namespace Lsg\betterLaravel;
 
 interface AutoScreenInterface
 {
