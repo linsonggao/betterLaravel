@@ -1,8 +1,8 @@
 {
-    "name": "linsonggao/better-laravel",
+    "name": "lsg/better-laravel",
     "autoload": {
         "psr-4": {
-            "Linsonggao\\BetterLaravel\\": "src/"
+            "lsg\\BetterLaravel\\": "src/"
         }
     },
     "authors": [

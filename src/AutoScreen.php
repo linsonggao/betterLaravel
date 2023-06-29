@@ -21,19 +21,16 @@ class AutoScreen extends AutoScreenAbstract implements AutoScreenInterface
      */
     public function makeAutoQuery(): object
     {
-        //dd($this->query->from);
         if ($this->query instanceof Builder) {
             $tbArr = explode('.', $this->query->from);
             if (count($tbArr) == 2) {
                 $this->table = $table = $tbArr[1];
                 $schema = Schema::connection(mb_strtolower($tbArr[0]) . '_mysql', $tbArr[0]);
-            //$schema->getConnection()->setDatabaseName(strtolower($tbArr[0]));
             } else {
                 $this->table = $table = $this->query->from;
                 $schema = Schema::connection('mysql');
             }
             $q = ($this->query);
-        //dd(123);
         } else {
             $this->table = $table = ($this->query)->getTable();
             $q = ($this->query)->query();
@@ -47,15 +44,7 @@ class AutoScreen extends AutoScreenAbstract implements AutoScreenInterface
             $this->columnList = $columnList = json_decode(Cache::get('columnList' . $this->table), true);
         } else {
             if ($this->query instanceof Builder) {
-                //$this->columnList = $columnList = Schema::getColumnListing($this->query->from);
                 $this->columnList = $columnList = $schema->getColumnListing($table);
-            //dd($columnList);
-            //$res = DB::connection(strtolower($tbArr[0]) . '_mysql')->select('select column_name as `column_name` from information_schema.columns where table_schema =  "' . $tbArr[0] . '" and table_name = "' . $tbArr[1] . '"');
-            // collect($res)->each(function ($item) use (&$columnList) {
-            // 	$columnList[] = $item->column_name;
-            // });
-            //$this->columnList = $columnList;
-            //dd($res);
             } else {
                 $this->columnList = $columnList = Schema::getColumnListing($table);
             }
@@ -182,17 +171,6 @@ class AutoScreen extends AutoScreenAbstract implements AutoScreenInterface
                 if ($joinTable = config('automake.like_join_table')) {
                     if (Schema::hasTable($joinTable[0])) {
                         //关联太慢，改成子查询
-                        // $q->leftJoin($joinTable[0], $joinTable[0] . '.' . $joinTable[1], $table . '.' . $joinTable[2])->where(
-                        //     function ($query) use ($searchValue, $joinTable) {
-                        //         $search_values = config('automake.search_value');
-                        //         foreach ($search_values as $k => $config_search_name) {
-                        //             if (!$searchValue) {
-                        //                 continue;
-                        //             }
-                        //             $query->orWhere($joinTable[0] . '.' . $config_search_name, 'like', '%' . $searchValue . '%');
-                        //         }
-                        //     }
-                        // );
                         $search_values = config('automake.search_value');
                         $joinQuery = DB::table($joinTable[0]);
                         foreach ($search_values as $k => $config_search_name) {
@@ -359,9 +337,7 @@ class AutoScreen extends AutoScreenAbstract implements AutoScreenInterface
                                 $q->where($searchKey, '>=', (int) $value[$searchKey][0])->where($searchKey, '<=', (int) $value[$searchKey][1]);
                             }
                         }
-                    //where[] = ['age','in',[1,2]]
                     } else {
-                        //where[] = ['resulut','like','阳']
                         if ($value[1] == 'like') {
                             $q->where($value[0], $value[1], '%' . $value[2] . '%');
                         } else {
@@ -391,9 +367,7 @@ class AutoScreen extends AutoScreenAbstract implements AutoScreenInterface
         }
 
         if ($pageCustom) {
-            //perPage: $perPage, page: $page
             $list = $q->customPage($per_page, ['*'], 'page', $page)->toArray();
-        //$list = $q->customPaginate(true, $per_page, $page)->toArray();
         } else {
             $list = $q->paginate($per_page, ['*'], 'page', $page)->toArray();
         }
@@ -583,25 +557,19 @@ class AutoScreen extends AutoScreenAbstract implements AutoScreenInterface
         ');
             $column_comment = $res[0]->COLUMN_COMMENT;
             if ($validateFunction && mb_strpos($column_comment, $validateFunction) !== false) {
-                // dump($COLUMN_NAME);
-                // dump(explode('|', $column_comment));
-                // dump($column_comment);
                 $validateStrArr = explode('|', $column_comment);
                 if (isset($validateStrArr[1])) {
                     $validateStr = $validateStrArr[1];
-                    //dump(explode(',', $validateStr));
                     $douFen = explode(',', $validateStr);
                     foreach ($douFen as $key => $douFenValue) {
                         $maoFen = explode(':', $douFenValue);
                         if (isset($maoFen) && $maoFen[0] == $validateFunction) {
-                            //dump($maoFen[1]);
                             if ($maoFen[1] == 'require') {
                                 if (isset($requestAll['name'])) {
                                     continue;
                                 }
                                 $message = explode('require_message:', $column_comment);
                                 $msg = trim(trim($message[1], '|'), ',');
-                                //dd($msg);
                                 throw new ApiException($errCode, $msg);
                             }
                         }
