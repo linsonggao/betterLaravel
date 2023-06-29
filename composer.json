@@ -1,0 +1,15 @@
+{
+    "name": "linsonggao/better-laravel",
+    "autoload": {
+        "psr-4": {
+            "Linsonggao\\BetterLaravel\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "linsonggao",
+            "email": "371925293@qq.com"
+        }
+    ],
+    "require": {}
+}

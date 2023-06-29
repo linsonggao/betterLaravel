@@ -1,0 +1,56 @@
+<?php
+
+namespace DummyNamespace;
+
+use App\Models\Patient;
+use Lsg\AutoScreen\Gupo\BaseList;
+
+/**
+ * 自定义列表
+ * 使用方法:
+ *      0.声明一个列表路由(比如/api/patient/list)
+ *      1.在controller层$service->list($itemCode),
+ *      2.在service层use当前类
+ */
+trait DummyClass
+{
+    use BaseList;
+    //缓存时间
+    protected static $cacheExpire = 6;
+
+    //基础查询
+    protected static $baseWhere = ['center_id' => 1];
+    //基础查询字段
+    protected static $baseSelect = ['id', 'name', 'gender', 'age', 'phone', 'card_no', 'address', 'village_name', 'village_code', 'town_name', 'town_code'];
+
+    //年龄范围人群
+    public $is_age_flg = [];
+
+    //死亡人群
+    public $is_die_flg = []; //疾病诊断 默认乳腺癌
+
+    /**
+     * 自动化列表
+     * @param mixed $method
+     * @param mixed $requestData
+     */
+    public function __list($method, $requestData)
+    {
+        $list =
+            match ($method) {
+                //搜索指定年龄范围人群
+                'is_age_flg'              => Patient::makeList(
+                    screen: self::addWhere([]),
+                    select: $this->addSelect(),
+                    orderBy: [['updated_at', 'desc']],
+                    requestData: $requestData
+                ),
+                default                   => [
+                    'list'  => [],
+                    'total' => 0,
+                ]
+            };
+
+        return $list;
+    }
+}
