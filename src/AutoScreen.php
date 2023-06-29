@@ -1,6 +1,6 @@
 <?php
 
-namespace Lsg\betterLaravel;
+namespace Lsg\BetterLaravel;
 
 use Closure;
 use Illuminate\Contracts\Database\Eloquent\Builder;

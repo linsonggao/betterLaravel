@@ -1,6 +1,6 @@
 <?php
 
-namespace Lsg\betterLaravel\Enum;
+namespace Lsg\BetterLaravel\Enum;
 
 use Attribute;
 

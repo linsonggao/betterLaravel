@@ -3,7 +3,7 @@
 namespace DummyNamespace;
 
 use App\Models\Patient;
-use Lsg\betterLaravel\Gupo\BaseList;
+use Lsg\BetterLaravel\Gupo\BaseList;
 
 /**
  * 自定义列表

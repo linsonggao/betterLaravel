@@ -1,6 +1,6 @@
 <?php
 
-namespace Lsg\betterLaravel\Support;
+namespace Lsg\BetterLaravel\Support;
 
 use Illuminate\Pagination\LengthAwarePaginator;
 

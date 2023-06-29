@@ -1,6 +1,6 @@
 <?php
 
-namespace Lsg\betterLaravel\Gupo;
+namespace Lsg\BetterLaravel\Gupo;
 
 use App\Models\Dws\AggrGjaRskElmt;
 use App\Models\Patient;
@@ -10,7 +10,7 @@ use App\Models\Patient;
  */
 trait DemoList
 {
-    use \Lsg\betterLaravel\Gupo\BaseList;
+    use \Lsg\BetterLaravel\Gupo\BaseList;
 
     //缓存时间
     protected static $cacheExpire = 1800;

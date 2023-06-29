@@ -1,7 +1,7 @@
 <?php
 declare(strict_types = 1);
 
-namespace Lsg\betterLaravel\Enum;
+namespace Lsg\BetterLaravel\Enum;
 
 /**
  * 商品类型

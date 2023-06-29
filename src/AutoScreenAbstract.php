@@ -1,6 +1,6 @@
 <?php
 
-namespace Lsg\betterLaravel;
+namespace Lsg\BetterLaravel;
 
 abstract class AutoScreenAbstract implements AutoScreenInterface
 {

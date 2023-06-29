@@ -1,7 +1,7 @@
 <?php
 
 
-namespace Lsg\betterLaravel\Rules;
+namespace Lsg\BetterLaravel\Rules;
 
 use Illuminate\Contracts\Validation\Rule;
 

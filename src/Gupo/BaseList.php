@@ -1,6 +1,6 @@
 <?php
 
-namespace Lsg\betterLaravel\Gupo;
+namespace Lsg\BetterLaravel\Gupo;
 
 use Illuminate\Support\Facades\Cache;
 

@@ -2,7 +2,7 @@
     "name": "lsg/better-laravel",
     "autoload": {
         "psr-4": {
-            "lsg\\betterLaravel\\": "src/"
+            "Lsg\\BetterLaravel\\": "src/"
         }
     },
     "authors": [

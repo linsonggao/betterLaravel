@@ -1,6 +1,6 @@
 <?php
 
-namespace Lsg\betterLaravel\Console;
+namespace Lsg\BetterLaravel\Console;
 
 use Illuminate\Console\GeneratorCommand;
 

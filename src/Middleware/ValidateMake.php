@@ -1,6 +1,6 @@
 <?php
 
-namespace Lsg\betterLaravel\Middleware;
+namespace Lsg\BetterLaravel\Middleware;
 
 use Closure;
 use Illuminate\Support\Facades\Cache;
